@@ -14,6 +14,8 @@ month.RasterBrick = function(x) {
   month(x@z[[1]])
 }
 
+month.RasterStack = month.RasterBrick
+
 year = function(...){
   UseMethod('year')
 }
@@ -26,6 +28,8 @@ year.RasterBrick = function(x) {
 }
 
 monmean = function(x){
+  
+  if (is.null(x)) return(NULL)
   
   hasDate(x)
   mon = month(x)
@@ -41,5 +45,13 @@ monmean = function(x){
   R
 }
 
-
-
+selper = function(x, per){
+  
+  y = year(x)
+  if (length(which(y %in% per)) == 0) return(NULL)
+  px = x[[which(y %in% per)]]
+  px@z = list(Date = x@z[[1]][(y %in% per)])
+ # names(px) = as.character(y[(y %in% per)])
+  px
+  
+}
