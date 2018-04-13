@@ -17,11 +17,11 @@ where <- if(.Platform[["OS.type"]] == 'unix') (Sys.info()['nodename']) else (Sys
 switch(where,
          'match' = {
            .datadir = "/home/owc/CORDEX/data/"
-           .workdir = ""
+           .workdir = "/home/owc/ZP/otipkova/scenare/"
          },
         "HANEL-SN-01" = {
           .datadir = "/home/owc/CORDEX/data/"
-          .workdir = ""
+          .workdir = "/home/owc/ZP/otipkova/scenare/"
         }
 )
 
