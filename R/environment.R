@@ -18,7 +18,11 @@ switch(where,
          'match' = {
            .datadir = "/home/owc/CORDEX/data/"
            .workdir = ""
-         }
+         },
+        "HANEL-SN-01" = {
+          .datadir = "/home/owc/CORDEX/data/"
+          .workdir = ""
+        }
 )
 
   if (is.null(.datadir)) {
