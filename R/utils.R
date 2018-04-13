@@ -55,3 +55,18 @@ selper = function(x, per){
   px
   
 }
+
+wgs2krov=function(wgs){
+  
+  wgs@proj4string=CRS('+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs')
+  spTransform(wgs,CRS('+proj=krovak +lat_0=49.5 +lon_0=24.83333333333333 +alpha=0 +k=0.9999 +x_0=0 +y_0=0 +ellps=bessel +units=m +no_defs'))
+
+}
+
+krov2wgs=function(krov){
+  
+  require(rgdal)
+  krov@proj4string=CRS('+proj=krovak +lat_0=49.5 +lon_0=24.83333333333333 +alpha=0 +k=0.9999 +x_0=0 +y_0=0 +ellps=bessel +units=m +no_defs')
+  spTransform(krov,CRS('+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs'))
+  
+} 
